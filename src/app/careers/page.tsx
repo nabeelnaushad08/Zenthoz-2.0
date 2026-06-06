@@ -49,9 +49,9 @@ const perks = [
 
 export default function CareersPage() {
   return (
-    <div className="bg-[#0a0a0a] pt-24">
+    <div className="bg-[#0a0a0a]">
       {/* Hero */}
-      <section className="py-20 lg:py-28 text-center relative overflow-hidden">
+      <section className="page-hero pb-16 lg:pb-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-purple-600/6 rounded-full blur-3xl" />
         </div>

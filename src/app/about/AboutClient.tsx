@@ -25,9 +25,9 @@ const fadeUp = {
 
 export function AboutClient() {
   return (
-    <div className="bg-[#0a0a0a] pt-24">
+    <div className="bg-[#0a0a0a]">
       {/* Hero */}
-      <section className="py-20 lg:py-32 relative overflow-hidden">
+      <section className="page-hero pb-20 lg:pb-28 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-purple-600/6 rounded-full blur-3xl" />
         </div>

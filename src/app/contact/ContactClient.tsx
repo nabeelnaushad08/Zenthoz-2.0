@@ -46,9 +46,9 @@ export function ContactClient() {
   const errorClass = 'text-red-400 text-xs mt-1';
 
   return (
-    <div className="bg-[#0a0a0a] pt-24">
+    <div className="bg-[#0a0a0a]">
       {/* Hero */}
-      <section className="py-16 lg:py-24 text-center relative overflow-hidden">
+      <section className="page-hero pb-10 lg:pb-16 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-purple-600/6 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
