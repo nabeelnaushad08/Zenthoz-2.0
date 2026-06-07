@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/700.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
@@ -10,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     'World-class websites, software, automation systems, and growth strategies for ambitious businesses.',
-  keywords: ['web development', 'digital agency', 'software development', 'automation', 'Zenthoz'],
+  keywords: ['web development', 'digital agency', 'software development', 'automation', 'AI integration', 'Zenthoz'],
   authors: [{ name: 'Zenthoz Technologies' }],
   creator: 'Zenthoz',
   openGraph: {
@@ -18,15 +25,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://zenthoz.com',
     title: 'Zenthoz — We Engineer Businesses That Refuse To Stay Small',
-    description:
-      'World-class websites, software, automation, and growth systems for ambitious businesses.',
+    description: 'World-class websites, software, automation, and growth systems for ambitious businesses.',
     siteName: 'Zenthoz',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Zenthoz — We Engineer Businesses That Refuse To Stay Small',
-    description:
-      'World-class websites, software, automation, and growth systems for ambitious businesses.',
+    description: 'World-class websites, software, automation, and growth systems for ambitious businesses.',
     creator: '@zenthoz',
   },
   robots: { index: true, follow: true },

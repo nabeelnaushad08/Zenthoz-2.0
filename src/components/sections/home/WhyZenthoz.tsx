@@ -1,92 +1,92 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import { X, Check } from 'lucide-react';
 
 const comparisons = [
-  {
-    label: 'Delivery Time',
-    agency: 'Months of back-and-forth',
-    zenthoz: 'Rapid, sprint-based delivery',
-  },
-  {
-    label: 'Communication',
-    agency: 'Account managers relay messages',
-    zenthoz: 'Direct access to your team',
-  },
-  {
-    label: 'Strategy',
-    agency: 'Generic templates and playbooks',
-    zenthoz: 'Custom strategy for your goals',
-  },
-  {
-    label: 'Results Focus',
-    agency: 'Deliverables over outcomes',
-    zenthoz: 'ROI-driven, measurable results',
-  },
-  {
-    label: 'Tech Stack',
-    agency: 'Outdated or bloated platforms',
-    zenthoz: 'Modern, best-in-class tools',
-  },
-  {
-    label: 'Pricing',
-    agency: 'Hidden fees and scope creep',
-    zenthoz: 'Transparent, project-based pricing',
-  },
+  'Strategic business partner',
+  'Full-stack execution',
+  'Results-based accountability',
+  'Transparent communication',
+  'Built for scale from day one',
+  'AI & automation integrated',
+  'Single point of contact',
+  'Measurable ROI tracking',
 ];
+
+const ease = [0.21, 0.47, 0.32, 0.98] as [number, number, number, number];
 
 export function WhyZenthoz() {
   return (
-    <section className="relative bg-[#0f0f0f] py-24 lg:py-32">
+    <section className="py-24 lg:py-32 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Why Zenthoz</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease }}
+        >
+          <span className="tag-gradient mb-4 inline-block">Why Zenthoz</span>
+          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight mt-4">
             The agency model is{' '}
             <span className="gradient-text">broken.</span>
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto">
-            We built Zenthoz to be the agency we always wished existed — one that operates like a world-class product team.
+          <p className="mt-5 text-white/50 text-lg max-w-2xl mx-auto">
+            We built Zenthoz to be the agency we always wished existed — one
+            that operates like a world-class product team.
           </p>
-        </div>
+        </motion.div>
 
         {/* Comparison table */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          className="glass-card rounded-3xl p-8 lg:p-10 overflow-hidden"
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl border border-white/[0.08] overflow-hidden"
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease, delay: 0.1 }}
         >
           {/* Table header */}
-          <div className="grid grid-cols-3 bg-white/[0.03] border-b border-white/[0.08]">
-            <div className="px-6 py-5 text-white/40 text-xs font-medium uppercase tracking-wider">Category</div>
-            <div className="px-6 py-5 text-white/40 text-xs font-medium uppercase tracking-wider border-x border-white/[0.08]">Typical Agency</div>
-            <div className="px-6 py-5 flex items-center gap-2 text-xs font-medium uppercase tracking-wider">
-              <span className="gradient-text">Zenthoz</span>
+          <div className="grid grid-cols-3 mb-6">
+            <div />
+            <div className="text-center text-red-400 font-bold text-sm uppercase tracking-widest py-3">
+              Agency
+            </div>
+            <div className="text-center text-violet-400 font-bold text-sm uppercase tracking-widest py-3">
+              Zenthoz
             </div>
           </div>
 
           {/* Rows */}
-          {comparisons.map((row, i) => (
-            <div
-              key={row.label}
-              className={`grid grid-cols-3 border-b border-white/[0.06] last:border-0 ${
-                i % 2 === 0 ? 'bg-transparent' : 'bg-white/[0.01]'
-              }`}
-            >
-              <div className="px-6 py-5 text-white/60 text-sm font-medium">{row.label}</div>
-              <div className="px-6 py-5 border-x border-white/[0.08] flex items-start gap-2">
-                <X size={14} className="text-red-400/60 mt-0.5 shrink-0" />
-                <span className="text-white/40 text-sm">{row.agency}</span>
-              </div>
-              <div className="px-6 py-5 flex items-start gap-2">
-                <Check size={14} className="text-green-400 mt-0.5 shrink-0" />
-                <span className="text-white/80 text-sm">{row.zenthoz}</span>
-              </div>
-            </div>
-          ))}
+          <div className="space-y-1">
+            {comparisons.map((item, i) => (
+              <motion.div
+                key={item}
+                className={`grid grid-cols-3 rounded-xl px-4 py-4 ${
+                  i % 2 === 0 ? 'bg-white/[0.02]' : 'bg-white/[0.04]'
+                }`}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, ease, delay: i * 0.07 }}
+              >
+                <div className="text-white/70 text-sm font-medium flex items-center">
+                  {item}
+                </div>
+                <div className="flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-full bg-red-500/10 flex items-center justify-center">
+                    <X size={14} className="text-red-400" />
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-full bg-violet-500/10 flex items-center justify-center">
+                    <Check size={14} className="text-violet-400" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
