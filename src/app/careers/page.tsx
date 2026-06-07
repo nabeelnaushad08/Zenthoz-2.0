@@ -1,133 +1,132 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { GradientText } from '@/components/ui/GradientText';
 
 export const metadata: Metadata = {
   title: 'Careers',
-  description: "Join the Zenthoz team. We're building the future of digital business — come build it with us.",
+  description: 'Join Zenthoz. We are always looking for exceptional talent to join our team of builders, designers, and strategists.',
 };
 
-const openRoles = [
+const openings = [
   {
-    title: 'Senior Full-Stack Engineer',
+    title: 'Senior Full-Stack Developer',
     type: 'Full-time',
     location: 'Remote',
     department: 'Engineering',
-    description: 'Build production-grade web applications using Next.js, TypeScript, and modern cloud infrastructure.',
+    description: 'Build and architect complex web applications and APIs using modern tech stacks. You will own entire features end-to-end.',
   },
   {
     title: 'UI/UX Designer',
     type: 'Full-time',
     location: 'Remote',
     department: 'Design',
-    description: 'Design world-class digital experiences that convert. Expertise in Figma and interaction design required.',
+    description: 'Create exceptional user experiences that drive business results. You translate strategy into stunning, functional interfaces.',
   },
   {
-    title: 'Growth Strategist',
+    title: 'SEO & Content Strategist',
     type: 'Full-time',
     location: 'Remote',
     department: 'Growth',
-    description: 'Drive measurable growth for clients through SEO, paid media, and data-driven marketing strategies.',
+    description: 'Develop and execute comprehensive SEO strategies for our clients. You understand search inside out and are obsessed with rankings.',
   },
   {
-    title: 'AI/ML Engineer',
+    title: 'Project Manager',
     type: 'Full-time',
     location: 'Remote',
-    department: 'Engineering',
-    description: 'Integrate AI capabilities into client products and internal tooling. LLM experience preferred.',
+    department: 'Operations',
+    description: 'Own client relationships and project delivery from kickoff to launch. You are organized, proactive, and love keeping things on track.',
   },
 ];
 
 const perks = [
-  { title: 'Fully Remote', desc: 'Work from anywhere in the world.' },
-  { title: 'Competitive Pay', desc: 'Top-of-market compensation.' },
-  { title: 'Equity Options', desc: 'Own a piece of what you build.' },
-  { title: 'Learning Budget', desc: '$2,000/year for courses & conferences.' },
-  { title: 'Flexible Hours', desc: 'We care about output, not hours.' },
-  { title: 'Premium Tools', desc: 'Best-in-class software and hardware.' },
+  { title: 'Fully Remote', description: 'Work from anywhere in the world. We care about output, not office hours.' },
+  { title: 'Competitive Pay', description: 'Top-of-market salaries with performance bonuses for exceptional work.' },
+  { title: 'Continuous Learning', description: '$2,000 annual budget for courses, conferences, and tools.' },
+  { title: 'Flexible Hours', description: 'Async-first culture. You set your schedule around your peak performance hours.' },
+  { title: 'Health Benefits', description: 'Comprehensive health coverage for you and your family.' },
+  { title: 'Equity Options', description: 'Be part of building something big. Long-term incentives for key team members.' },
 ];
 
 export default function CareersPage() {
   return (
-    <div className="bg-[#0a0a0a]">
-      {/* Hero */}
-      <section className="page-hero pb-16 lg:pb-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-purple-600/6 rounded-full blur-3xl" />
+    <div style={{ paddingTop: '72px' }}>
+      <section className="relative bg-[#0a0a0a] py-20 lg:py-28 text-center overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-violet-600/8 rounded-full blur-3xl" />
         </div>
-        <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-6">We&apos;re Hiring</p>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8" style={{ zIndex: 1 }}>
+          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-6">Careers</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6">
             Build the future{' '}
-            <br />
-            <GradientText>with us</GradientText>
+            <span className="gradient-text">with us.</span>
           </h1>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
-            Zenthoz is a team of builders, designers, and strategists who care deeply about their craft. If you love creating things that matter, you&apos;ll fit right in.
+          <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+            We are a team of exceptional people who love hard problems. If that sounds like you, we want to talk.
           </p>
         </div>
       </section>
 
-      {/* Why Zenthoz */}
-      <section className="py-20 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-divider" />
+
+      {/* Perks */}
+      <section className="bg-[#0f0f0f] py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-4">
-              Why work at <GradientText>Zenthoz?</GradientText>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
+              Why join <span className="gradient-text">Zenthoz?</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
             {perks.map((perk) => (
-              <div key={perk.title} className="rounded-2xl p-6 border border-white/[0.06] bg-white/[0.02]">
-                <h3 className="text-lg font-bold text-white mb-2">{perk.title}</h3>
-                <p className="text-white/50 text-sm">{perk.desc}</p>
+              <div key={perk.title} className="rounded-2xl p-6 border border-white/[0.08] bg-white/[0.02]">
+                <h3 className="text-white font-bold mb-2">{perk.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">{perk.description}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Open Roles */}
-      <section className="py-28 bg-[#0a0a0a]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Openings */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-4">
-              Open <GradientText>positions</GradientText>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
+              Open <span className="gradient-text">positions</span>
             </h2>
           </div>
           <div className="space-y-4">
-            {openRoles.map((role) => (
+            {openings.map((job) => (
               <div
-                key={role.title}
-                className="group rounded-2xl p-6 border border-white/[0.06] bg-white/[0.01] hover:border-purple-500/30 hover:bg-white/[0.03] transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                key={job.title}
+                className="rounded-2xl p-6 lg:p-8 border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
               >
-                <div className="flex-grow">
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-purple-600/10 text-purple-400 font-medium">{role.department}</span>
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/[0.04] text-white/40">{role.type}</span>
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/[0.04] text-white/40">{role.location}</span>
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                      <span className="inline-block px-2.5 py-1 rounded-full bg-violet-600/10 text-violet-400 text-xs font-medium">
+                        {job.department}
+                      </span>
+                      <span className="text-white/30 text-xs">{job.type} · {job.location}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">{job.title}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed">{job.description}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{role.title}</h3>
-                  <p className="text-white/50 text-sm">{role.description}</p>
+                  <Link
+                    href="/contact"
+                    className="shrink-0 inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400 hover:opacity-90 transition-opacity"
+                  >
+                    Apply Now
+                  </Link>
                 </div>
-                <Link
-                  href="/contact"
-                  className="flex-shrink-0 px-5 py-2.5 rounded-full border border-white/20 text-white text-sm font-medium hover:border-purple-500/40 hover:bg-purple-600/5 transition-all"
-                >
-                  Apply Now
-                </Link>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center py-10 border border-white/[0.06] rounded-2xl bg-white/[0.01]">
-            <p className="text-white/60 mb-2">Don&apos;t see a role that fits?</p>
-            <p className="text-white/40 text-sm mb-6">We&apos;re always looking for exceptional talent. Send us your portfolio.</p>
+          {/* General CTA */}
+          <div className="mt-12 text-center p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02]">
+            <h3 className="text-xl font-bold text-white mb-3">Don&apos;t see your role?</h3>
+            <p className="text-white/50 text-sm mb-5">We are always interested in exceptional talent. Send us your story.</p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-cyan-400 text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold text-white border border-white/20 hover:bg-white/5 hover:border-white/40 transition-all"
             >
-              Send Open Application
+              Get in touch
             </Link>
           </div>
         </div>

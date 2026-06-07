@@ -1,138 +1,150 @@
 'use client';
-
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { GradientText } from '@/components/ui/GradientText';
-import { PROJECTS } from '@/lib/constants';
 
-const categories = ['All', 'Web', 'Software', 'Branding', 'Marketing'];
+const projects = [
+  {
+    category: 'E-commerce',
+    title: 'Lumière Fashion',
+    description: 'Complete brand overhaul and custom Shopify development for a luxury fashion brand looking to dominate the online space.',
+    results: ['+340% Revenue', '4.8% CVR', '+220% Traffic'],
+    tags: ['Web Dev', 'Brand Design', 'SEO'],
+    gradient: 'from-violet-600/20 to-fuchsia-600/10',
+    border: 'border-violet-500/20',
+  },
+  {
+    category: 'SaaS',
+    title: 'DataFlow AI',
+    description: 'Full-stack SaaS platform with real-time analytics, user management, billing, and automated onboarding flows.',
+    results: ['$50K MRR', '10 Weeks to Launch', '<2% Churn'],
+    tags: ['Software', 'UI/UX', 'Automation'],
+    gradient: 'from-cyan-600/20 to-blue-600/10',
+    border: 'border-cyan-500/20',
+  },
+  {
+    category: 'Professional Services',
+    title: "O'Brien Law Group",
+    description: 'Authority-building website, local SEO campaign, and automated client intake system for a regional law firm.',
+    results: ['+500% Leads', '47 Page 1 Keywords', '-65% CPL'],
+    tags: ['Web Dev', 'SEO', 'Automation'],
+    gradient: 'from-emerald-600/20 to-teal-600/10',
+    border: 'border-emerald-500/20',
+  },
+  {
+    category: 'Logistics',
+    title: 'Nexus Logistics',
+    description: 'Custom fleet management dashboard, automated dispatch system, and real-time tracking portal for a growing logistics company.',
+    results: ['+80% Efficiency', '100% On-time', '-40% Admin Cost'],
+    tags: ['Software', 'Automation', 'Dashboard'],
+    gradient: 'from-orange-600/20 to-amber-600/10',
+    border: 'border-orange-500/20',
+  },
+  {
+    category: 'Healthcare',
+    title: 'MedCore Clinics',
+    description: 'Patient portal, appointment booking system, and HIPAA-compliant data management platform for a multi-location clinic.',
+    results: ['+300% Online Bookings', '98% Patient Satisfaction', 'Zero Compliance Issues'],
+    tags: ['Software', 'Web Dev', 'Security'],
+    gradient: 'from-pink-600/20 to-rose-600/10',
+    border: 'border-pink-500/20',
+  },
+  {
+    category: 'Fintech',
+    title: 'Apex Capital',
+    description: 'Premium brand identity and investor-facing website for a boutique investment firm entering a competitive market.',
+    results: ['+250% Investor Inquiries', '3x Brand Perception', 'Premium Market Position'],
+    tags: ['Brand Design', 'Web Dev', 'Strategy'],
+    gradient: 'from-indigo-600/20 to-violet-600/10',
+    border: 'border-indigo-500/20',
+  },
+];
 
 export function PortfolioClient() {
-  const [active, setActive] = useState('All');
-
-  const filtered = active === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === active);
-
   return (
-    <div className="bg-[#0a0a0a]">
+    <div style={{ paddingTop: '72px' }}>
       {/* Hero */}
-      <section className="page-hero pb-16 lg:pb-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-pink-600/5 rounded-full blur-3xl" />
+      <section className="relative bg-[#0a0a0a] py-20 lg:py-28 text-center overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-violet-600/8 rounded-full blur-3xl" />
         </div>
-        <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-6">Our Work</p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6">
-              Projects that{' '}
-              <GradientText>deliver</GradientText>
-            </h1>
-            <p className="text-xl text-white/50">
-              A selection of work we&apos;re proud of. Every project, a story of transformation.
-            </p>
-          </motion.div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8" style={{ zIndex: 1 }}>
+          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-6">Our Work</p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6">
+            Real projects.{' '}
+            <span className="gradient-text">Real results.</span>
+          </h1>
+          <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+            Every project in our portfolio represents a business transformed through strategy, design, and technology.
+          </p>
         </div>
       </section>
 
-      {/* Filter Tabs */}
-      <div className="sticky top-16 lg:top-20 z-30 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.06] py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-2 overflow-x-auto scrollbar-hide">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  active === cat
-                    ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-cyan-400 text-white'
-                    : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
-                }`}
+      <div className="section-divider" />
+
+      {/* Projects grid */}
+      <section className="bg-[#0f0f0f] py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {projects.map((project, i) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className={`rounded-2xl p-6 lg:p-8 border ${project.border} bg-gradient-to-br ${project.gradient} hover:scale-[1.01] transition-transform duration-300`}
               >
-                {cat}
-              </button>
+                <div className="flex items-start justify-between mb-5">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs font-medium">
+                    {project.category}
+                  </span>
+                  <ArrowUpRight size={16} className="text-white/30" />
+                </div>
+                <h3 className="text-2xl font-black text-white mb-3">{project.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed mb-6">{project.description}</p>
+                
+                {/* Results */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.results.map((result) => (
+                    <span key={result} className="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-semibold">
+                      {result}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/[0.08]">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="text-white/30 text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Projects Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatePresence mode="popLayout">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((project, i) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ delay: i * 0.05, duration: 0.4 }}
-                  className="group relative rounded-2xl border border-white/[0.06] overflow-hidden bg-white/[0.01] hover:border-white/10 transition-all duration-300"
-                >
-                  {/* Image placeholder */}
-                  <div className={`h-52 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
-                    {/* Category badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="text-xs font-medium px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm text-white/80">
-                        {project.category}
-                      </span>
-                    </div>
-                    {/* Hover action */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                        <ArrowUpRight size={20} className="text-white" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-white/50 text-sm leading-relaxed mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-white/40"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </AnimatePresence>
-        </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* CTA */}
-      <section className="py-24 text-center border-t border-white/[0.06]">
-        <div className="max-w-2xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+      <section className="bg-[#0a0a0a] py-20 lg:py-28 text-center">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-6">
+            Ready to be our{' '}
+            <span className="gradient-text">next success story?</span>
+          </h2>
+          <p className="text-white/50 text-lg mb-10 leading-relaxed">
+            Let&apos;s discuss your project and explore how we can help you achieve extraordinary results.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400 text-white font-semibold hover:opacity-90 transition-opacity shadow-xl shadow-violet-500/20"
           >
-            <h2 className="text-3xl sm:text-4xl font-black mb-4">
-              Ready to be our next{' '}
-              <GradientText>success story?</GradientText>
-            </h2>
-            <p className="text-white/50 mb-8">Let&apos;s build something remarkable together.</p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-cyan-400 text-white font-semibold hover:opacity-90 transition-opacity"
-            >
-              Start a Project
-            </Link>
-          </motion.div>
+            Start a Project
+          </Link>
         </div>
       </section>
     </div>

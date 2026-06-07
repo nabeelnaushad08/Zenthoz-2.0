@@ -3,8 +3,7 @@ import { ServicesClient } from './ServicesClient';
 
 export const metadata: Metadata = {
   title: 'Services',
-  description:
-    'Comprehensive digital services: Growth, Systems, and Scale. From websites to AI integration — Zenthoz engineers the full stack of your digital success.',
+  description: 'Six core digital services to help your business grow: web development, software, automation, SEO, brand design, and digital strategy.',
 };
 
 export default function ServicesPage() {

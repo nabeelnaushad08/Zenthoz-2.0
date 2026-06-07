@@ -1,224 +1,177 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import { Star, Target, Eye, Zap, BookOpen } from 'lucide-react';
-import { GradientText } from '@/components/ui/GradientText';
-import { TEAM_MEMBERS, MILESTONES, COMPANY_VALUES } from '@/lib/constants';
+import { Target, Eye, Zap, Star, Users, Award } from 'lucide-react';
 
-const valueIcons: Record<string, React.ReactNode> = {
-  Star: <Star size={24} />,
-  Target: <Target size={24} />,
-  Eye: <Eye size={24} />,
-  Handshake: <Star size={24} />,
-  Zap: <Zap size={24} />,
-  BookOpen: <BookOpen size={24} />,
-};
+const values = [
+  {
+    icon: Target,
+    title: 'Results-Obsessed',
+    description: 'Every decision we make is filtered through one question: does this drive measurable outcomes for our clients?',
+  },
+  {
+    icon: Star,
+    title: 'Uncompromising Quality',
+    description: 'We hold ourselves to the highest standards in every pixel, line of code, and strategy we deliver.',
+  },
+  {
+    icon: Eye,
+    title: 'Radical Transparency',
+    description: 'No hidden fees. No vague timelines. You always know exactly where your project stands and why.',
+  },
+  {
+    icon: Zap,
+    title: 'Speed With Purpose',
+    description: 'We move fast because your time is valuable — but never at the expense of the quality you deserve.',
+  },
+  {
+    icon: Users,
+    title: 'Partnership Mindset',
+    description: 'We treat your business like our own. Your growth is our growth. Your wins are our wins.',
+  },
+  {
+    icon: Award,
+    title: 'Continuous Excellence',
+    description: 'We are always learning, always improving. The best work we have done is always our next project.',
+  },
+];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6 },
-  }),
-};
+const milestones = [
+  { year: '2019', event: 'Founded with a mission to change how agencies work' },
+  { year: '2020', event: 'First 10 clients — built entirely through referrals' },
+  { year: '2021', event: 'Launched our software division, tripling service capabilities' },
+  { year: '2022', event: 'Crossed 100 projects delivered across 15 countries' },
+  { year: '2023', event: 'Introduced AI & automation services to our stack' },
+  { year: '2024', event: 'Over 200 projects delivered, 50+ active clients globally' },
+];
 
 export function AboutClient() {
   return (
-    <div className="bg-[#0a0a0a]">
+    <div style={{ paddingTop: '72px' }}>
       {/* Hero */}
-      <section className="page-hero pb-20 lg:pb-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-purple-600/6 rounded-full blur-3xl" />
+      <section className="relative bg-[#0a0a0a] py-20 lg:py-28 text-center overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-violet-600/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-600/6 rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-6">About Zenthoz</p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6">
-              Built by builders,{' '}
-              <br />
-              <GradientText>for builders</GradientText>
-            </h1>
-            <p className="text-xl text-white/50 max-w-3xl mx-auto leading-relaxed">
-              Zenthoz was founded on a simple belief: every ambitious business deserves world-class digital execution. We&apos;re not just an agency — we&apos;re the engineering team your business always needed.
-            </p>
-          </motion.div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8" style={{ zIndex: 1 }}>
+          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-6">Our Story</p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6">
+            About <span className="gradient-text">Zenthoz</span>
+          </h1>
+          <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+            We are a team of builders, designers, and strategists obsessed with creating digital products that generate real business results.
+          </p>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="section-divider" />
+
+      {/* Mission */}
+      <section className="bg-[#0f0f0f] py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl p-10 border border-white/[0.06] bg-white/[0.02] relative overflow-hidden"
+              transition={{ duration: 0.6 }}
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400" />
-              <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-              <p className="text-white/60 leading-relaxed text-lg">
-                To democratize world-class digital execution — giving every ambitious business access to the engineering talent, creative firepower, and strategic intelligence that was once reserved for Fortune 500 companies.
+              <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Our Mission</p>
+              <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-6">
+                We engineer businesses that refuse to stay small.
+              </h2>
+              <p className="text-white/50 text-lg leading-relaxed mb-6">
+                Zenthoz was founded on a simple but powerful belief: every ambitious business deserves access to world-class digital infrastructure — not just the big players with massive budgets.
+              </p>
+              <p className="text-white/50 leading-relaxed">
+                We combine the strategic thinking of a top-tier consultancy with the execution speed of a product team. The result? Digital systems that compound in value over time and give our clients a lasting competitive advantage.
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl p-10 border border-white/[0.06] bg-white/[0.02] relative overflow-hidden"
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-4"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500" />
-              <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
-              <p className="text-white/60 leading-relaxed text-lg">
-                A world where great ideas aren&apos;t held back by poor execution. We envision Zenthoz as the global standard for digital excellence — the first call any ambitious founder or enterprise leader makes.
-              </p>
+              {[
+                { label: 'Projects Delivered', value: '200+' },
+                { label: 'Happy Clients', value: '50+' },
+                { label: 'Years of Excellence', value: '5+' },
+                { label: 'Countries Served', value: '15+' },
+              ].map((stat) => (
+                <div key={stat.label} className="rounded-2xl p-6 border border-white/[0.08] bg-white/[0.02] text-center">
+                  <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
+                  <div className="text-white/40 text-sm">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-28 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-4">What We Stand For</p>
-            <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
-              Our core <GradientText>values</GradientText>
-            </h2>
-          </motion.div>
+      <div className="section-divider" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COMPANY_VALUES.map((value, i) => (
-              <motion.div
-                key={value.title}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="group rounded-2xl p-8 border border-white/[0.06] bg-white/[0.02] hover:border-purple-500/30 hover:bg-white/[0.04] transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/20 to-pink-500/20 flex items-center justify-center text-purple-400 mb-4">
-                  {valueIcons[value.icon] || <Star size={24} />}
-                </div>
-                <h3 className="text-lg font-bold text-white mb-3">{value.title}</h3>
-                <p className="text-white/50 leading-relaxed">{value.description}</p>
-              </motion.div>
-            ))}
+      {/* Values */}
+      <section className="bg-[#0a0a0a] py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Our Values</p>
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
+              How we <span className="gradient-text">operate</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {values.map((v, i) => {
+              const Icon = v.icon;
+              return (
+                <motion.div
+                  key={v.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: i * 0.07 }}
+                  className="rounded-2xl p-6 border border-white/[0.08] bg-white/[0.02]"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-violet-600/10 flex items-center justify-center text-violet-400 mb-4">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-3">{v.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{v.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-28 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-4">The Team</p>
-            <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
-              The people behind the <GradientText>magic</GradientText>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TEAM_MEMBERS.map((member, i) => (
-              <motion.div
-                key={member.id}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="group rounded-2xl p-6 border border-white/[0.06] bg-white/[0.02] hover:border-white/10 transition-all duration-300 text-center"
-              >
-                {/* Avatar */}
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600 via-pink-500 to-cyan-400 mx-auto mb-4 flex items-center justify-center text-2xl font-black text-white">
-                  {member.name.split(' ').map((n) => n[0]).join('')}
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-purple-400 text-sm font-medium mb-3">{member.role}</p>
-                <p className="text-white/40 text-sm leading-relaxed">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="section-divider" />
 
       {/* Timeline */}
-      <section className="py-28 bg-[#0a0a0a]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-4">Our Journey</p>
+      <section className="bg-[#0f0f0f] py-20 lg:py-28">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Journey</p>
             <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
-              Milestones that <GradientText>matter</GradientText>
+              Our <span className="gradient-text">milestones</span>
             </h2>
-          </motion.div>
-
+          </div>
           <div className="relative">
-            <div className="absolute left-16 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/50 via-pink-500/30 to-transparent" />
-
-            <div className="space-y-12">
-              {MILESTONES.map((milestone, i) => (
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-violet-600/40 via-fuchsia-600/30 to-transparent" />
+            <div className="space-y-8">
+              {milestones.map((m, i) => (
                 <motion.div
-                  key={milestone.year}
-                  custom={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
+                  key={m.year}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className={`flex items-start gap-6 ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}
+                  transition={{ duration: 0.4, delay: i * 0.07 }}
+                  className="relative flex items-start gap-6 pl-12"
                 >
-                  <div className={`hidden sm:block flex-1 ${i % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    {i % 2 !== 0 && (
-                      <div className="rounded-xl p-5 border border-white/[0.06] bg-white/[0.02] inline-block text-left">
-                        <p className="text-white font-bold mb-1">{milestone.title}</p>
-                        <p className="text-white/40 text-sm">{milestone.description}</p>
-                      </div>
-                    )}
-                    {i % 2 === 0 && (
-                      <div className="rounded-xl p-5 border border-white/[0.06] bg-white/[0.02] inline-block text-left">
-                        <p className="text-white font-bold mb-1">{milestone.title}</p>
-                        <p className="text-white/40 text-sm">{milestone.description}</p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">{milestone.year.slice(2)}</span>
-                  </div>
-
-                  <div className="flex-1 sm:hidden">
-                    <p className="text-purple-400 text-sm font-bold mb-1">{milestone.year}</p>
-                    <p className="text-white font-bold mb-1">{milestone.title}</p>
-                    <p className="text-white/40 text-sm">{milestone.description}</p>
-                  </div>
-
-                  <div className="hidden sm:block flex-1">
-                    {i % 2 !== 0 && (
-                      <p className="text-purple-400 font-bold text-lg">{milestone.year}</p>
-                    )}
-                    {i % 2 === 0 && (
-                      <p className="text-purple-400 font-bold text-lg">{milestone.year}</p>
-                    )}
+                  <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-xs font-bold shrink-0" />
+                  <div>
+                    <span className="text-white/40 text-xs font-mono mb-1 block">{m.year}</span>
+                    <p className="text-white/80 text-sm leading-relaxed">{m.event}</p>
                   </div>
                 </motion.div>
               ))}

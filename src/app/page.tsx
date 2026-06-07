@@ -1,5 +1,4 @@
 import { Hero } from '@/components/sections/home/Hero';
-import { TrustMetrics } from '@/components/sections/home/TrustMetrics';
 import { WhatWeBuild } from '@/components/sections/home/WhatWeBuild';
 import { WhyZenthoz } from '@/components/sections/home/WhyZenthoz';
 import { CaseStudies } from '@/components/sections/home/CaseStudies';
@@ -11,12 +10,17 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustMetrics />
+      <div className="section-divider" />
       <WhatWeBuild />
+      <div className="section-divider" />
       <WhyZenthoz />
+      <div className="section-divider" />
       <CaseStudies />
+      <div className="section-divider" />
       <HowWeWork />
+      <div className="section-divider" />
       <Testimonials />
+      <div className="section-divider" />
       <CTASection />
     </>
   );

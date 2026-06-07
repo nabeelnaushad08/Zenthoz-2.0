@@ -1,113 +1,86 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import { TrendingUp, Cpu, Zap, Brain, Palette, Megaphone } from 'lucide-react';
-import { GradientText } from '@/components/ui/GradientText';
+import { Globe, Code2, Bot, BarChart3, Palette, ShieldCheck } from 'lucide-react';
 
-const categories = [
+const services = [
   {
-    icon: TrendingUp,
-    title: 'Growth Systems',
-    description: 'SEO, content, and marketing engines that compound over time and dominate your market.',
-    gradient: 'from-purple-600/20 to-purple-600/5',
-    border: 'hover:border-purple-500/40',
-    iconColor: 'text-purple-400',
-    span: 'lg:col-span-2',
+    icon: Globe,
+    title: 'Web Development',
+    description: 'High-performance websites and web applications that convert visitors into customers with pixel-perfect design.',
+    color: 'text-violet-400',
+    bg: 'bg-violet-600/10',
   },
   {
-    icon: Cpu,
-    title: 'Digital Systems',
-    description: 'Custom websites, apps, and platforms built for performance and conversion.',
-    gradient: 'from-cyan-600/20 to-cyan-600/5',
-    border: 'hover:border-cyan-500/40',
-    iconColor: 'text-cyan-400',
-    span: '',
+    icon: Code2,
+    title: 'Software Solutions',
+    description: 'Custom software systems, APIs, and platforms built for scale — from MVPs to enterprise-grade applications.',
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-600/10',
   },
   {
-    icon: Zap,
-    title: 'Automation',
-    description: 'Eliminate bottlenecks. Automate workflows and multiply your team\'s output.',
-    gradient: 'from-yellow-600/15 to-yellow-600/5',
-    border: 'hover:border-yellow-500/40',
-    iconColor: 'text-yellow-400',
-    span: '',
+    icon: Bot,
+    title: 'Automation & AI',
+    description: 'End-to-end automation workflows and AI integrations that eliminate manual work and multiply your output.',
+    color: 'text-fuchsia-400',
+    bg: 'bg-fuchsia-600/10',
   },
   {
-    icon: Brain,
-    title: 'AI Integration',
-    description: 'Embed intelligence into your products and processes for unfair competitive advantage.',
-    gradient: 'from-pink-600/20 to-pink-600/5',
-    border: 'hover:border-pink-500/40',
-    iconColor: 'text-pink-400',
-    span: '',
+    icon: BarChart3,
+    title: 'SEO & Growth',
+    description: 'Data-driven SEO strategies and growth systems that compound over time, delivering consistent organic traffic.',
+    color: 'text-emerald-400',
+    bg: 'bg-emerald-600/10',
   },
   {
     icon: Palette,
-    title: 'Brand Identity',
-    description: 'Identities that command attention, build trust, and make your brand unforgettable.',
-    gradient: 'from-orange-600/15 to-orange-600/5',
-    border: 'hover:border-orange-500/40',
-    iconColor: 'text-orange-400',
-    span: '',
+    title: 'Brand Design',
+    description: 'Strategic branding and visual identity systems that position your business as the premium choice in your market.',
+    color: 'text-orange-400',
+    bg: 'bg-orange-600/10',
   },
   {
-    icon: Megaphone,
-    title: 'Performance Marketing',
-    description: 'Data-driven campaigns across every channel that generate measurable, scalable ROI.',
-    gradient: 'from-green-600/15 to-green-600/5',
-    border: 'hover:border-green-500/40',
-    iconColor: 'text-green-400',
-    span: 'lg:col-span-2',
+    icon: ShieldCheck,
+    title: 'Digital Strategy',
+    description: 'Comprehensive digital roadmaps and go-to-market strategies that turn your vision into measurable growth.',
+    color: 'text-pink-400',
+    bg: 'bg-pink-600/10',
   },
 ];
 
 export function WhatWeBuild() {
   return (
-    <section className="py-28 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-[#0a0a0a] py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-4">What We Build</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
+        <div className="text-center mb-16">
+          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">What We Build</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
             Six pillars of{' '}
-            <GradientText>digital excellence</GradientText>
+            <span className="gradient-text">digital excellence</span>
           </h2>
-        </motion.div>
+          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            Every service we offer is built around one goal: making your business impossible to ignore.
+          </p>
+        </div>
 
-        {/* Bento Grid */}
+        {/* Bento grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {categories.map((cat, i) => {
-            const Icon = cat.icon;
+          {services.map((service, i) => {
+            const Icon = service.icon;
             return (
               <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={service.title}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                whileHover={{ scale: 1.02 }}
-                className={`group relative rounded-2xl p-8 border border-white/[0.06] bg-gradient-to-br ${cat.gradient} ${cat.border} transition-all duration-300 cursor-pointer overflow-hidden ${cat.span || ''}`}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="rounded-2xl p-6 lg:p-8 border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 group cursor-pointer"
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/[0.02] to-transparent" />
-
-                <div className={`inline-flex p-3 rounded-xl bg-white/[0.04] mb-4 ${cat.iconColor}`}>
-                  <Icon size={24} />
+                <div className={`w-10 h-10 rounded-xl ${service.bg} flex items-center justify-center ${service.color} mb-5`}>
+                  <Icon size={20} />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{cat.title}</h3>
-                <p className="text-white/50 leading-relaxed">{cat.description}</p>
-
-                {/* Arrow on hover */}
-                <div className="mt-4 flex items-center gap-1 text-sm font-medium text-white/30 group-hover:text-white/70 transition-colors">
-                  Learn more
-                  <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
-                </div>
+                <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">{service.description}</p>
               </motion.div>
             );
           })}

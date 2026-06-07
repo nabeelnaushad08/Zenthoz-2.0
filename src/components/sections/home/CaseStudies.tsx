@@ -1,78 +1,93 @@
 'use client';
-
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
-import { GradientText } from '@/components/ui/GradientText';
-import { CASE_STUDIES } from '@/lib/constants';
+
+const cases = [
+  {
+    tag: 'E-commerce',
+    title: 'Luxury Fashion Brand',
+    result: '+340% online revenue in 6 months',
+    description: 'Complete brand overhaul, custom Shopify build, and performance marketing system that tripled their online sales.',
+    metrics: [
+      { label: 'Revenue Growth', value: '+340%' },
+      { label: 'Conversion Rate', value: '4.8%' },
+      { label: 'Organic Traffic', value: '+220%' },
+    ],
+    gradient: 'from-violet-600/20 to-fuchsia-600/10',
+    border: 'border-violet-500/20',
+  },
+  {
+    tag: 'SaaS',
+    title: 'B2B Analytics Platform',
+    result: '0 to $50K MRR in 8 months',
+    description: 'Full-stack SaaS application with real-time analytics dashboard, automated onboarding, and growth engine.',
+    metrics: [
+      { label: 'MRR Growth', value: '$50K' },
+      { label: 'Time to Launch', value: '10 weeks' },
+      { label: 'Churn Rate', value: '< 2%' },
+    ],
+    gradient: 'from-cyan-600/20 to-blue-600/10',
+    border: 'border-cyan-500/20',
+  },
+  {
+    tag: 'Professional Services',
+    title: 'Law Firm Digital Presence',
+    result: '500% increase in qualified leads',
+    description: 'Authority-building website, local SEO domination, and automated client intake system that transformed their practice.',
+    metrics: [
+      { label: 'Lead Volume', value: '+500%' },
+      { label: 'Page 1 Keywords', value: '47' },
+      { label: 'Cost Per Lead', value: '-65%' },
+    ],
+    gradient: 'from-emerald-600/20 to-teal-600/10',
+    border: 'border-emerald-500/20',
+  },
+];
 
 export function CaseStudies() {
   return (
-    <section className="py-28 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6"
-        >
+    <section className="relative bg-[#0a0a0a] py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div>
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-4">Case Studies</p>
+            <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Results</p>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-              Results that{' '}
-              <GradientText>speak</GradientText>
+              Real work,{' '}
+              <span className="gradient-text">real results.</span>
             </h2>
           </div>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm font-medium"
+            className="flex items-center gap-2 text-white/50 hover:text-white text-sm font-medium transition-colors shrink-0"
           >
-            View all work <ArrowUpRight size={16} />
+            View all case studies <ArrowUpRight size={16} />
           </Link>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {CASE_STUDIES.map((study, i) => (
+          {cases.map((c, i) => (
             <motion.div
-              key={study.id}
-              initial={{ opacity: 0, y: 30 }}
+              key={c.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative rounded-2xl border border-white/[0.06] overflow-hidden bg-white/[0.01] hover:border-white/10 transition-all duration-300"
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={`rounded-2xl p-6 lg:p-8 border ${c.border} bg-gradient-to-br ${c.gradient} hover:scale-[1.01] transition-transform duration-300`}
             >
-              {/* Gradient header */}
-              <div className={`h-48 bg-gradient-to-br ${study.gradient} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]/60" />
-                <div className="absolute bottom-4 left-6">
-                  <span className="text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/70">
-                    {study.industry}
-                  </span>
-                </div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm">
-                    <ArrowUpRight size={14} className="text-white" />
+              <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs font-medium mb-5">
+                {c.tag}
+              </span>
+              <h3 className="text-xl font-bold text-white mb-2">{c.title}</h3>
+              <p className="text-white font-semibold mb-4 text-sm">{c.result}</p>
+              <p className="text-white/50 text-sm leading-relaxed mb-6">{c.description}</p>
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/[0.08]">
+                {c.metrics.map((m) => (
+                  <div key={m.label}>
+                    <div className="text-white font-bold text-lg">{m.value}</div>
+                    <div className="text-white/40 text-xs mt-0.5">{m.label}</div>
                   </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-4">{study.client}</h3>
-
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-xs font-medium text-white/30 uppercase tracking-wider mb-1">Challenge</p>
-                    <p className="text-sm text-white/60">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-white/30 uppercase tracking-wider mb-1">Solution</p>
-                    <p className="text-sm text-white/60">{study.solution}</p>
-                  </div>
-                  <div className="pt-4 border-t border-white/[0.06]">
-                    <p className="text-xs font-medium text-green-400 uppercase tracking-wider mb-1">Outcome</p>
-                    <p className="text-sm text-white font-medium">{study.outcome}</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
           ))}

@@ -1,121 +1,110 @@
 import type { Metadata } from 'next';
-import { GradientText } from '@/components/ui/GradientText';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Insights, strategies, and stories from the Zenthoz team.',
+  description: 'Insights, strategies, and ideas from the Zenthoz team on web development, growth, and digital business.',
 };
 
 const posts = [
   {
-    title: 'Why Most Business Websites Fail at Conversion (And How to Fix It)',
-    excerpt: 'A deep dive into the common mistakes that cost businesses thousands in lost revenue, and the proven frameworks we use to build sites that actually convert.',
-    category: 'Strategy',
-    date: 'Dec 2024',
-    readTime: '7 min read',
-    gradient: 'from-purple-600 to-pink-500',
+    date: 'June 1, 2025',
+    category: 'Web Development',
+    title: 'Why Your Website Is Costing You Customers (And How to Fix It)',
+    excerpt: 'Most business websites fail at the one job they have: converting visitors into leads. Here is how to fix that in 30 days.',
+    readTime: '5 min read',
   },
   {
-    title: 'The AI Integration Playbook for Non-Technical Founders',
-    excerpt: "AI isn't just for tech companies. Here's how we've helped businesses across industries embed AI to reduce costs and increase output.",
-    category: 'AI & Automation',
-    date: 'Nov 2024',
-    readTime: '9 min read',
-    gradient: 'from-cyan-500 to-blue-600',
-  },
-  {
-    title: 'How We Grew a Client\'s Organic Traffic by 312% in 8 Months',
-    excerpt: 'A behind-the-scenes look at the SEO strategy, content system, and technical optimizations that delivered triple-digit growth.',
+    date: 'May 20, 2025',
     category: 'SEO',
-    date: 'Oct 2024',
-    readTime: '11 min read',
-    gradient: 'from-pink-500 to-orange-400',
-  },
-  {
-    title: 'The Complete Guide to Brand Identity for Startups',
-    excerpt: 'Brand identity is more than a logo. This guide covers everything founders need to know about building a brand that commands attention and trust.',
-    category: 'Branding',
-    date: 'Sep 2024',
-    readTime: '14 min read',
-    gradient: 'from-green-400 to-cyan-500',
-  },
-  {
-    title: 'Automation ROI: How to Calculate and Maximize Returns',
-    excerpt: "We break down how to measure the real ROI of business automation and share the frameworks we use to identify the highest-impact opportunities.",
-    category: 'Automation',
-    date: 'Aug 2024',
+    title: 'The SEO Strategy That Generated 500+ Leads for a Law Firm',
+    excerpt: 'A detailed breakdown of the exact SEO system we built that took a local law firm from invisible to industry-dominant.',
     readTime: '8 min read',
-    gradient: 'from-yellow-400 to-orange-500',
   },
   {
-    title: 'Next.js 15 Performance Patterns We Use in Production',
-    excerpt: 'The specific architectural patterns and optimizations our engineering team uses to achieve sub-second load times in production Next.js applications.',
-    category: 'Engineering',
-    date: 'Jul 2024',
-    readTime: '12 min read',
-    gradient: 'from-purple-500 to-indigo-600',
+    date: 'May 10, 2025',
+    category: 'Automation',
+    title: 'How We Saved a Client 40 Hours Per Week With Simple Automation',
+    excerpt: 'Step-by-step walkthrough of the automation systems we built to eliminate repetitive work and free up the team to focus on growth.',
+    readTime: '6 min read',
+  },
+  {
+    date: 'April 28, 2025',
+    category: 'Strategy',
+    title: 'The Digital Infrastructure Checklist for Ambitious Businesses',
+    excerpt: 'The exact tech stack and digital systems we recommend to clients who want to build a scalable, competitive online presence.',
+    readTime: '7 min read',
+  },
+  {
+    date: 'April 12, 2025',
+    category: 'Brand Design',
+    title: 'Why Premium Branding Is the Best ROI in Digital Marketing',
+    excerpt: 'Data from 50+ clients shows that businesses with strong brand identities consistently outperform on every key digital metric.',
+    readTime: '4 min read',
+  },
+  {
+    date: 'March 30, 2025',
+    category: 'SaaS',
+    title: 'From Idea to $50K MRR: The Zenthoz SaaS Playbook',
+    excerpt: 'The exact process we used to take a B2B analytics SaaS from zero to $50K monthly recurring revenue in 8 months.',
+    readTime: '10 min read',
   },
 ];
 
+const categoryColors: Record<string, string> = {
+  'Web Development': 'text-violet-400 bg-violet-600/10',
+  'SEO': 'text-cyan-400 bg-cyan-600/10',
+  'Automation': 'text-fuchsia-400 bg-fuchsia-600/10',
+  'Strategy': 'text-emerald-400 bg-emerald-600/10',
+  'Brand Design': 'text-orange-400 bg-orange-600/10',
+  'SaaS': 'text-pink-400 bg-pink-600/10',
+};
+
 export default function BlogPage() {
   return (
-    <div className="bg-[#0a0a0a]">
-      {/* Hero */}
-      <section className="page-hero pb-16 lg:pb-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-cyan-600/5 rounded-full blur-3xl" />
+    <div style={{ paddingTop: '72px' }}>
+      <section className="relative bg-[#0a0a0a] py-20 lg:py-28 text-center overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-violet-600/8 rounded-full blur-3xl" />
         </div>
-        <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-6">Insights</p>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8" style={{ zIndex: 1 }}>
+          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-6">Knowledge Hub</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6">
-            The Zenthoz{' '}
-            <GradientText>Blog</GradientText>
+            Ideas that{' '}
+            <span className="gradient-text">drive growth.</span>
           </h1>
-          <p className="text-xl text-white/50">
-            Strategies, stories, and insights from the team engineering the future of digital business.
+          <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+            Strategies, insights, and playbooks from the team building the future of digital business.
           </p>
         </div>
       </section>
 
-      {/* Posts */}
-      <section className="pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post, i) => (
-              <div
-                key={i}
-                className="group rounded-2xl border border-white/[0.06] overflow-hidden bg-white/[0.01] hover:border-white/10 transition-all duration-300 cursor-pointer"
-              >
-                <div className={`h-40 bg-gradient-to-br ${post.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-                  <div className="absolute top-4 left-4">
-                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm text-white/80">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 text-white/30 text-xs mb-3">
-                    <span>{post.date}</span>
-                    <span>·</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-purple-300 transition-colors leading-snug">
-                    {post.title}
-                  </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{post.excerpt}</p>
-                  <div className="mt-4 flex items-center gap-1 text-purple-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Read article →
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="section-divider" />
 
-          {/* Coming soon note */}
-          <div className="mt-16 text-center py-12 border border-white/[0.06] rounded-2xl bg-white/[0.01]">
-            <p className="text-white/40 text-lg">More articles coming soon.</p>
-            <p className="text-white/20 text-sm mt-2">Subscribe to our newsletter to be notified.</p>
+      <section className="bg-[#0f0f0f] py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post) => (
+              <article
+                key={post.title}
+                className="rounded-2xl p-6 border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${categoryColors[post.category] || 'text-white/50 bg-white/5'}`}>
+                    {post.category}
+                  </span>
+                  <span className="text-white/30 text-xs">{post.readTime}</span>
+                </div>
+                <h2 className="text-white font-bold text-lg leading-snug mb-3 flex-1">{post.title}</h2>
+                <p className="text-white/50 text-sm leading-relaxed mb-5">{post.excerpt}</p>
+                <div className="flex items-center justify-between pt-4 border-t border-white/[0.06]">
+                  <span className="text-white/30 text-xs">{post.date}</span>
+                  <Link href="/contact" className="text-violet-400 hover:text-violet-300 text-xs font-medium transition-colors">
+                    Read more →
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

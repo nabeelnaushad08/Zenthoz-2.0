@@ -3,7 +3,7 @@ import { ContactClient } from './ContactClient';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: "Start your project with Zenthoz. Tell us about your goals and we'll engineer the perfect solution.",
+  description: "Get in touch with Zenthoz. Tell us about your project and we'll respond within 24 hours.",
 };
 
 export default function ContactPage() {

@@ -1,103 +1,93 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import { Check, X } from 'lucide-react';
-import { GradientText } from '@/components/ui/GradientText';
+import { X, Check } from 'lucide-react';
 
 const comparisons = [
-  { label: 'Strategic business partner', agency: false, zenthoz: true },
-  { label: 'Full-stack execution (design + dev + marketing)', agency: false, zenthoz: true },
-  { label: 'Results-based accountability', agency: false, zenthoz: true },
-  { label: 'Transparent, real-time communication', agency: false, zenthoz: true },
-  { label: 'Built for scale from day one', agency: false, zenthoz: true },
-  { label: 'AI & automation integrated by default', agency: false, zenthoz: true },
-  { label: 'Single point of contact', agency: false, zenthoz: true },
-  { label: 'Measurable ROI tracking', agency: false, zenthoz: true },
+  {
+    label: 'Delivery Time',
+    agency: 'Months of back-and-forth',
+    zenthoz: 'Rapid, sprint-based delivery',
+  },
+  {
+    label: 'Communication',
+    agency: 'Account managers relay messages',
+    zenthoz: 'Direct access to your team',
+  },
+  {
+    label: 'Strategy',
+    agency: 'Generic templates and playbooks',
+    zenthoz: 'Custom strategy for your goals',
+  },
+  {
+    label: 'Results Focus',
+    agency: 'Deliverables over outcomes',
+    zenthoz: 'ROI-driven, measurable results',
+  },
+  {
+    label: 'Tech Stack',
+    agency: 'Outdated or bloated platforms',
+    zenthoz: 'Modern, best-in-class tools',
+  },
+  {
+    label: 'Pricing',
+    agency: 'Hidden fees and scope creep',
+    zenthoz: 'Transparent, project-based pricing',
+  },
 ];
 
 export function WhyZenthoz() {
   return (
-    <section className="py-28 bg-[#080808]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-4">Why Zenthoz</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-            Not your average{' '}
-            <GradientText>agency</GradientText>
+    <section className="relative bg-[#0f0f0f] py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Why Zenthoz</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+            The agency model is{' '}
+            <span className="gradient-text">broken.</span>
           </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {/* Agency column */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-white/[0.06] p-8 bg-white/[0.01]"
-          >
-            <h3 className="text-xl font-bold text-white/40 mb-6 flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-white/5 text-sm">Typical Agency</span>
-            </h3>
-            <ul className="space-y-4">
-              {comparisons.map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="flex items-center gap-3"
-                >
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center">
-                    <X size={12} className="text-red-400" />
-                  </span>
-                  <span className="text-white/30 text-sm">{item.label}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Zenthoz column */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-purple-500/20 p-8 bg-gradient-to-br from-purple-600/5 to-cyan-600/5 relative overflow-hidden"
-          >
-            {/* Glow */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-              <GradientText className="px-3 py-1 rounded-full text-sm" style={{ background: 'rgba(139,92,246,0.1)' }}>
-                Zenthoz
-              </GradientText>
-            </h3>
-            <ul className="space-y-4">
-              {comparisons.map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="flex items-center gap-3"
-                >
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <Check size={12} className="text-green-400" />
-                  </span>
-                  <span className="text-white text-sm">{item.label}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            We built Zenthoz to be the agency we always wished existed — one that operates like a world-class product team.
+          </p>
         </div>
+
+        {/* Comparison table */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+          className="rounded-2xl border border-white/[0.08] overflow-hidden"
+        >
+          {/* Table header */}
+          <div className="grid grid-cols-3 bg-white/[0.03] border-b border-white/[0.08]">
+            <div className="px-6 py-5 text-white/40 text-xs font-medium uppercase tracking-wider">Category</div>
+            <div className="px-6 py-5 text-white/40 text-xs font-medium uppercase tracking-wider border-x border-white/[0.08]">Typical Agency</div>
+            <div className="px-6 py-5 flex items-center gap-2 text-xs font-medium uppercase tracking-wider">
+              <span className="gradient-text">Zenthoz</span>
+            </div>
+          </div>
+
+          {/* Rows */}
+          {comparisons.map((row, i) => (
+            <div
+              key={row.label}
+              className={`grid grid-cols-3 border-b border-white/[0.06] last:border-0 ${
+                i % 2 === 0 ? 'bg-transparent' : 'bg-white/[0.01]'
+              }`}
+            >
+              <div className="px-6 py-5 text-white/60 text-sm font-medium">{row.label}</div>
+              <div className="px-6 py-5 border-x border-white/[0.08] flex items-start gap-2">
+                <X size={14} className="text-red-400/60 mt-0.5 shrink-0" />
+                <span className="text-white/40 text-sm">{row.agency}</span>
+              </div>
+              <div className="px-6 py-5 flex items-start gap-2">
+                <Check size={14} className="text-green-400 mt-0.5 shrink-0" />
+                <span className="text-white/80 text-sm">{row.zenthoz}</span>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
