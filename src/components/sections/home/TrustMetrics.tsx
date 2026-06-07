@@ -24,7 +24,7 @@ export function TrustMetrics() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, ease, delay: i * 0.07 }}
+              transition={{ duration: 0.6, ease: ease, delay: i * 0.07 }}
             >
               <div className="text-5xl lg:text-6xl font-black text-white leading-none">
                 <AnimatedCounter value={metric.value} suffix={metric.suffix} duration={1800} />

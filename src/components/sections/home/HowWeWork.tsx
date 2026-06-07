@@ -4,67 +4,98 @@ import { motion } from 'framer-motion';
 const steps = [
   {
     number: '01',
-    title: 'Discovery Call',
-    description: 'We start with a deep-dive into your business, goals, and challenges. No templates — just focused questions to understand exactly what you need.',
-    duration: '1–2 days',
+    title: 'Discover',
+    description: 'We deep-dive into your business, goals, and challenges — no templates, just focused listening to understand exactly what you need.',
   },
   {
     number: '02',
-    title: 'Strategy & Proposal',
-    description: 'We craft a detailed project plan with clear deliverables, timeline, and investment. You know exactly what you are getting before we start.',
-    duration: '2–3 days',
+    title: 'Design',
+    description: 'We craft a detailed strategy and visual blueprint with clear deliverables, timeline, and investment — before a single line of code is written.',
   },
   {
     number: '03',
-    title: 'Build & Iterate',
+    title: 'Engineer',
     description: 'Our team executes in focused sprints. You see real progress weekly with live previews and direct communication — no black boxes.',
-    duration: 'Project duration',
   },
   {
     number: '04',
-    title: 'Launch & Scale',
-    description: 'We don\'t just deliver and disappear. We ensure a successful launch and provide growth support to maximize the impact of everything we built.',
-    duration: 'Ongoing',
+    title: 'Launch',
+    description: 'We handle deployment, QA, and go-live with precision. Every launch is treated as a mission-critical event.',
+  },
+  {
+    number: '05',
+    title: 'Scale',
+    description: 'We remain your growth partner post-launch — iterating, optimizing, and expanding your digital footprint over time.',
   },
 ];
 
+const ease = [0.21, 0.47, 0.32, 0.98] as [number, number, number, number];
+
 export function HowWeWork() {
   return (
-    <section className="relative bg-[#0f0f0f] py-24 lg:py-32">
+    <section className="py-24 lg:py-32 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-white/40 text-xs tracking-[0.2em] uppercase mb-4">Process</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease }}
+        >
+          <span className="tag-gradient mb-4 inline-block">Our Process</span>
+          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight mt-4">
             How we <span className="gradient-text">work together</span>
           </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
+          <p className="mt-5 text-white/50 text-lg max-w-xl mx-auto">
             A proven process that delivers extraordinary results — every single time.
           </p>
+        </motion.div>
+
+        {/* Desktop: horizontal flex with connecting lines */}
+        <div className="hidden lg:flex items-start gap-0">
+          {steps.map((step, i) => (
+            <div key={step.number} className="flex items-start flex-1">
+              <motion.div
+                className="flex flex-col items-center text-center flex-1"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, ease, delay: i * 0.07 }}
+              >
+                {/* Circle */}
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 via-fuchsia-500 to-cyan-400 flex items-center justify-center text-white font-black text-lg mb-5 shrink-0 shadow-lg shadow-violet-500/20">
+                  {step.number}
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
+                <p className="text-white/40 text-xs leading-relaxed max-w-[160px]">{step.description}</p>
+              </motion.div>
+
+              {/* Connector line between steps */}
+              {i < steps.length - 1 && (
+                <div className="flex-1 h-px bg-gradient-to-r from-violet-600/30 to-transparent mt-7 mx-2 shrink-0" style={{ minWidth: '24px' }} />
+              )}
+            </div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile: vertical timeline */}
+        <div className="lg:hidden relative pl-8 border-l border-white/[0.08]">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative"
+              className="mb-10 last:mb-0 relative"
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease, delay: i * 0.07 }}
             >
-              {/* Connector line */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-white/10 to-transparent" style={{ zIndex: 0 }} />
-              )}
-
-              <div className="relative p-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] h-full" style={{ zIndex: 1 }}>
-                <div className="text-5xl font-black text-white/[0.04] mb-4 leading-none">{step.number}</div>
-                <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-4">{step.description}</p>
-                <span className="inline-block px-3 py-1 rounded-full bg-violet-600/10 text-violet-400 text-xs font-medium">
-                  {step.duration}
-                </span>
+              {/* Circle on timeline */}
+              <div className="absolute -left-[2.85rem] w-9 h-9 rounded-full bg-gradient-to-br from-violet-600 to-fuchsia-500 flex items-center justify-center text-white font-black text-sm shadow-lg shadow-violet-500/20">
+                {step.number}
               </div>
+              <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+              <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>

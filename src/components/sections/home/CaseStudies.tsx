@@ -11,7 +11,7 @@ const cases = [
     outcome: '340% conversion increase',
     metric: '+340% Conversions',
     metricColor: 'from-violet-500 to-fuchsia-500',
-    borderColor: 'from-violet-500/50 via-fuchsia-500/30 to-transparent',
+    borderColor: 'from-violet-500/60 via-fuchsia-500/30 to-transparent',
   },
   {
     industry: 'SaaS',
@@ -21,7 +21,7 @@ const cases = [
     outcome: '4.8x engagement improvement',
     metric: '4.8x Engagement',
     metricColor: 'from-cyan-500 to-blue-500',
-    borderColor: 'from-cyan-500/50 via-blue-500/30 to-transparent',
+    borderColor: 'from-cyan-500/60 via-blue-500/30 to-transparent',
   },
   {
     industry: 'Marketing',
@@ -31,7 +31,7 @@ const cases = [
     outcome: '8x ROAS achieved',
     metric: '8x ROAS',
     metricColor: 'from-emerald-500 to-teal-500',
-    borderColor: 'from-emerald-500/50 via-teal-500/30 to-transparent',
+    borderColor: 'from-emerald-500/60 via-teal-500/30 to-transparent',
   },
 ];
 

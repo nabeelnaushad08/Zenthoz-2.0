@@ -48,12 +48,12 @@ export function WhyZenthoz() {
           transition={{ duration: 0.6, ease, delay: 0.1 }}
         >
           {/* Table header */}
-          <div className="grid grid-cols-3 mb-6">
+          <div className="grid grid-cols-3 mb-6 border-b border-white/[0.06] pb-4">
             <div />
-            <div className="text-center text-red-400 font-bold text-sm uppercase tracking-widest py-3">
+            <div className="text-center text-red-400 font-bold text-sm uppercase tracking-widest py-2">
               Agency
             </div>
-            <div className="text-center text-violet-400 font-bold text-sm uppercase tracking-widest py-3">
+            <div className="text-center text-violet-400 font-bold text-sm uppercase tracking-widest py-2">
               Zenthoz
             </div>
           </div>
@@ -80,8 +80,8 @@ export function WhyZenthoz() {
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
-                  <div className="w-7 h-7 rounded-full bg-violet-500/10 flex items-center justify-center">
-                    <Check size={14} className="text-violet-400" />
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
+                    <Check size={14} className="gradient-text" style={{ color: '#8B5CF6' }} />
                   </div>
                 </div>
               </motion.div>
